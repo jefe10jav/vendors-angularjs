@@ -1,0 +1,39 @@
+.done-true {
+    text-decoration: line-through;
+    color: grey;
+  }
+
+#vendorImageProfile{
+  width: 20%;
+  height: auto;
+}
+
+#vendorName{
+  font-size: 130%;
+  font-family: Verdana, Geneva, sans-serif;
+  color: white;
+}
+
+#vendorCard{
+  background-color:#676767;
+}
+
+#vendorList{
+  background-color: black;
+}
+
+/*STYLES*/
+.sidenav{
+  background-color: black;
+}
+
+.card{
+  background-color:#313131;
+}
+
+#vendorListTitle{
+  padding-top: 3%;
+  border-bottom: 0.2px solid rgb(255, 255, 255);
+  padding-left: 10%;
+  font-weight: bold;
+}

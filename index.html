@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <!-- Resources -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/resources/materialize.min.css" media="screen,projection" />
+  <script src="js/resources/angular.min.js"></script>
+  <script type="text/javascript" src="js/resources/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/resources/materialize.min.js"></script>
+  <script type="text/javascript" src="js/resources/sidemenu.js"></script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- App files -->
+  <script src="js/app/app.js"></script>
+  <script src="js/app/controllers/VendorListController.js"></script>
+  <script src="js/app/services/VendorService.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="VendorListController as vm">
+
+  <!--div id="vendorList">
+    VENDOR LIST:
+    <ul ng-repeat="vendor in vendors" id="vendorCard" ng-click="getVendorsDetail(vendor.VendorID)">
+      <img ng-src="{{vendor.BizProfileImage}}" id="vendorImageProfile" />
+      <div id="vendorName">
+        {{vendor.BizName}}
+      </div>
+      <div>
+        {{vendor.BizShortDescription}}
+      </div>
+      <div>
+        {{vendor.BizListingDescription}}
+      </div>
+    </ul>
+  </div-->
+
+
+  <!--div class="#212121 grey darken-4">
+    <center>
+      <div>
+        <span class="white-text name"> {{vendorDetails.BizName}}</span>
+      </div>
+      <div>
+          <span class="white-text name">{{vendorDetails.BizURL}}</span>
+      </div>
+      <div>
+          <span class="white-text name">{{vendorDetails.BizPhone}}</span>
+      </div>
+    </center>
+
+    <div>
+      {{vendorDetails.BizData}}
+    </div>
+  </div-->
+
+  <div class="row #212121 grey darken-4" style="margin-bottom: 0px;">
+    <div class="col s2">
+      <div class="user-view">
+        <a href="#user">
+          <img class="circle" style="width: 50%; height: 50%" ng-src="{{vendorDetails.BizProfileImage}}">
+        </a>
+      </div>
+      <div>
+        <span class="white-text name"> {{vendorDetails.BizContact}}</span>
+      </div>
+    </div>
+    <div class="col s8">
+      <center>
+        <div>
+          <span class="white-text name"> {{vendorDetails.BizName}}</span>
+        </div>
+        <div>
+          <span class="white-text name">{{vendorDetails.BizURL}}</span>
+        </div>
+        <div>
+          <span class="white-text name">Contact: {{vendorDetails.BizPhone}}</span>
+        </div>
+      </center>
+    </div>
+    <div class="col s2">
+      <div class="user-view">
+        <a href="#user">
+          <img class="circle" style="width: 50%; height: 50%" ng-src="{{vendorDetails.BizBusinessImage}}">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row #2196f3 blue">
+    <div class="col s2">{{vendorDetails.SocialMediaHandles}}</div>
+  </div>
+
+  <div class="row">
+    <div>{{vendorDetails.BizData}}</div>
+  </div>
+
+
+  <div class="row" ng-repeat="media in vendorDetails.images">
+      <div class="col s2">
+          <img  ng-src="{{media.mediaImage}}" style="width: 50%;">
+      </div>
+      <div class="col s10">
+        {{media.MediaText}}
+      </div>
+  </div>
+
+
+
+  <ul id="slide-out" class="sidenav">
+
+    <li>
+      <div id="vendorListTitle">
+        <span class="white-text name">VENDOR LIST:</span>
+      </div>
+    </li>
+
+    <li class="card" ng-repeat="vendor in vendors" ng-click="getVendorsDetail(vendor.VendorID)">
+      <div class="user-view">
+        <!--div class="background">
+          <img ng-src="{{vendor.BizProfileImage}}">
+        </div-->
+        <a href="#user">
+          <img class="circle" ng-src="{{vendor.BizProfileImage}}">
+        </a>
+        <a href="#name">
+          <span class="white-text name">{{vendor.BizName}}</span>
+        </a>
+        <a href="#email">
+          <span class="white-text email">{{vendor.BizShortDescription}}</span>
+        </a>
+        <a href="#email">
+          <span class="white-text email">{{vendor.BizListingDescription}}</span>
+        </a>
+      </div>
+    </li>
+  </ul>
+  <a href="#" data-target="slide-out" class="sidenav-trigger">
+    <i class="material-icons">menu</i>
+  </a>
+
+
+</body>
+
+</html>
