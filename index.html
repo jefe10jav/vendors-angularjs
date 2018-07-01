@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+  <link href="https://fonts.googleapis.com/css?family=Karla|Roboto+Condensed" rel="stylesheet">
   <!-- Resources -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/resources/materialize.min.css" media="screen,projection" />
@@ -22,125 +22,111 @@
 
 <body ng-app="app" ng-controller="VendorListController as vm">
 
-  <!--div id="vendorList">
-    VENDOR LIST:
-    <ul ng-repeat="vendor in vendors" id="vendorCard" ng-click="getVendorsDetail(vendor.VendorID)">
-      <img ng-src="{{vendor.BizProfileImage}}" id="vendorImageProfile" />
-      <div id="vendorName">
-        {{vendor.BizName}}
-      </div>
-      <div>
-        {{vendor.BizShortDescription}}
-      </div>
-      <div>
-        {{vendor.BizListingDescription}}
-      </div>
-    </ul>
-  </div-->
-
-
-  <!--div class="#212121 grey darken-4">
-    <center>
-      <div>
-        <span class="white-text name"> {{vendorDetails.BizName}}</span>
-      </div>
-      <div>
-          <span class="white-text name">{{vendorDetails.BizURL}}</span>
-      </div>
-      <div>
-          <span class="white-text name">{{vendorDetails.BizPhone}}</span>
-      </div>
-    </center>
-
-    <div>
-      {{vendorDetails.BizData}}
-    </div>
-  </div-->
-
-  <div class="row #212121 grey darken-4" style="margin-bottom: 0px;">
-    <div class="col s2">
-      <div class="user-view">
-        <a href="#user">
-          <img class="circle" style="width: 50%; height: 50%" ng-src="{{vendorDetails.BizProfileImage}}">
-        </a>
-      </div>
-      <div>
-        <span class="white-text name"> {{vendorDetails.BizContact}}</span>
-      </div>
-    </div>
-    <div class="col s8">
-      <center>
-        <div>
-          <span class="white-text name"> {{vendorDetails.BizName}}</span>
-        </div>
-        <div>
-          <span class="white-text name">{{vendorDetails.BizURL}}</span>
-        </div>
-        <div>
-          <span class="white-text name">Contact: {{vendorDetails.BizPhone}}</span>
-        </div>
-      </center>
-    </div>
-    <div class="col s2">
-      <div class="user-view">
-        <a href="#user">
-          <img class="circle" style="width: 50%; height: 50%" ng-src="{{vendorDetails.BizBusinessImage}}">
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="row #2196f3 blue">
-    <div class="col s2">{{vendorDetails.SocialMediaHandles}}</div>
-  </div>
-
-  <div class="row">
-    <div>{{vendorDetails.BizData}}</div>
-  </div>
-
-
-  <div class="row" ng-repeat="media in vendorDetails.images">
-      <div class="col s2">
-          <img  ng-src="{{media.mediaImage}}" style="width: 50%;">
-      </div>
-      <div class="col s10">
-        {{media.MediaText}}
-      </div>
-  </div>
-
-
-
+  <!-- SIDE MNU -->
   <ul id="slide-out" class="sidenav">
 
     <li>
       <div id="vendorListTitle">
         <span class="white-text name">VENDOR LIST:</span>
+        <a id="closSideNav" ng-click="closeSideNav()">
+          <i class="material-icons">tune</i>
+        </a>
       </div>
+
     </li>
 
     <li class="card" ng-repeat="vendor in vendors" ng-click="getVendorsDetail(vendor.VendorID)">
       <div class="user-view">
-        <!--div class="background">
-          <img ng-src="{{vendor.BizProfileImage}}">
-        </div-->
-        <a href="#user">
+        <a id="bizProfileImage">
           <img class="circle" ng-src="{{vendor.BizProfileImage}}">
         </a>
-        <a href="#name">
-          <span class="white-text name">{{vendor.BizName}}</span>
-        </a>
-        <a href="#email">
-          <span class="white-text email">{{vendor.BizShortDescription}}</span>
-        </a>
-        <a href="#email">
-          <span class="white-text email">{{vendor.BizListingDescription}}</span>
+        <a id="bizProfileName">
+          <span class="white-text name" id="bizNameProfile" style="margin-top: 0px;">{{vendor.BizName}}</span>
+          <span class="name" id="bizShortDescription">{{vendor.BizShortDescription}}</span>
+          <span class="email" id="bizListingDescription">{{vendor.BizListingDescription}}</span>
         </a>
       </div>
+
     </li>
   </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger">
-    <i class="material-icons">menu</i>
-  </a>
+
+
+  <!-- VENDOR DETAILS -->
+  <div class="row #212121 grey darken-4" id="detailHeader">
+
+    <div class="col s1 center">
+      <!--a href="#" data-target="slide-out" class="sidenav-trigger pulse">
+        <i class="material-icons" id="burgerButton">menu</i>
+      </a-->
+
+      <a href="#" data-target="slide-out" class="sidenav-trigger btn-floating btn-large blue pulse">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+
+    <div class="col s2 center">
+      <div class="user-view">
+        <a href="#user">
+          <img class="profileImageDetail" ng-src="{{vendorDetails.BizProfileImage}}" ng-if="vendorDetails.BizProfileImage!=undefined && vendorDetails.BizProfileImage!=null">
+        </a>
+      </div>
+      <div id="bizContact">
+        <span class="white-text name"> {{vendorDetails.BizContact}}</span>
+      </div>
+    </div>
+
+    <div class="col s7 center">
+      <center>
+        <div>
+          <span class="white-text name" id="bizName"> {{vendorDetails.BizName}}</span>
+        </div>
+        <div id="bizURL">
+          <span class="white-text name underline">{{vendorDetails.BizURL}}</span>
+        </div>
+        <div id="bizPhone">
+          <span class="white-text name" ng-if="vendorDetails.BizPhone!=null || vendorDetails.BizPhone!=undefined">Contact: {{vendorDetails.BizPhone}}</span>
+        </div>
+      </center>
+    </div>
+
+    <div class="col s2 center">
+      <div class="user-view">
+        <a href="#user">
+          <img class="mediaImage" ng-src="{{vendorDetails.BizBusinessImage}}" ng-if="vendorDetails.BizBusinessImage!=undefined && vendorDetails.BizBusinessImage!=null">
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row #2196f3 blue" id="socialMediaHandles">
+    <div class="col s2">{{vendorDetails.SocialMediaHandles}}</div>
+  </div>
+
+  <!-- ERROR MESSAGE -->
+  <div class="row #2196f3 red" id="errorMessage" ng-if="error!=null;">
+    <a style="color: white;">
+      <i class="material-icons">warning</i>
+    </a>
+    <span class="white-text name">An error has occurred getting data from server.</span>
+  </div>
+
+  <div class="row" id="bizData">
+    <div>{{vendorDetails.BizData}}</div>
+  </div>
+
+
+  <div id="mediaGlobal">
+    <div class="row" ng-repeat="media in vendorDetails.images" id="mediaItem">
+      <div class="col s2">
+        <img ng-src="{{media.mediaImage}}" class="mediaImage">
+      </div>
+      <div class="col s10">
+        {{media.MediaText}}
+      </div>
+    </div>
+  </div>
+
 
 
 </body>

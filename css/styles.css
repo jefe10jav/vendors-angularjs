@@ -4,7 +4,7 @@
   }
 
 #vendorImageProfile{
-  width: 20%;
+width: 20%;
   height: auto;
 }
 
@@ -23,12 +23,52 @@
 }
 
 /*STYLES*/
+body{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 .sidenav{
   background-color: black;
 }
 
 .card{
+  cursor: pointer;
   background-color:#313131;
+}
+
+.user-view{
+  overflow:hidden;
+  width: 100%;
+}
+
+.sidenav .user-view .circle{
+  height: 84px;
+  width: 84px;
+}
+
+#bizNameProfile{
+  font-size: 20px;
+}
+
+#bizShortDescription{
+  margin-top: 7px;
+  color: #c2bcbc;
+}
+
+#bizListingDescription{
+  color: #9e9595;
+}
+
+.sidenav .user-view{
+  padding: 15px 22px 10px;;
+}
+
+#closSideNav{
+  color: white;
+  float: right;
+  cursor: pointer;
+  padding-top: 5px;
+  padding-right: 12px;
 }
 
 #vendorListTitle{
@@ -36,4 +76,89 @@
   border-bottom: 0.2px solid rgb(255, 255, 255);
   padding-left: 10%;
   font-weight: bold;
+  font-size: 20px;
+}
+
+#burgerButton{
+  padding-top: 40%;
+  padding-bottom: 40%;
+}
+
+#detailHeader{
+  padding-top: 20px;
+  margin-bottom: 0%;
+  padding-bottom: 20px;
+}
+
+#bizContact{
+  padding-top: 4%;
+}
+
+#bizName{
+  font-size: 170%;
+}
+
+#bizURL{
+  padding-top: 2%;
+}
+
+#bizPhone{
+  padding-top: 1%;
+}
+
+#socialMediaHandles{
+  padding-top: 2%;
+}
+
+#bizData{
+  column-count: 2;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 2%;
+}
+
+#mediaGlobal{
+  border-top: 2px solid #2196f3;
+  padding-top: 2%;
+}
+
+#mediaItem{
+  border-bottom: 1px solid #b9b9b9;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-bottom: 1%;
+  color: rgb(71, 71, 255);
+}
+
+.mediaImage{
+  width: 100px;
+  height: 100px;
+}
+
+.profileImageDetail{
+  width: 60px;
+  height: 60px;
+}
+
+#bizProfileImage{
+  display: inline-block;
+}
+
+#bizProfileName{
+  float: right;
+  position: absolute;
+  padding-left: 20px;
+   padding-right: 20px;
+}
+
+#errorMessage{
+  padding: 20px 20px 20px 20px;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+.center{
+  text-align: center;
 }
