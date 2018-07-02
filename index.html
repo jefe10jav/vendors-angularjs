@@ -2,7 +2,11 @@
 <html>
 
 <head>
+  <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Karla|Roboto+Condensed" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans|Rokkitt" rel="stylesheet">
+
   <!-- Resources -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/resources/materialize.min.css" media="screen,projection" />
@@ -22,7 +26,7 @@
 
 <body ng-app="app" ng-controller="VendorListController as vm">
 
-  <!-- SIDE MNU -->
+  <!-- SIDE MENU -->
   <ul id="slide-out" class="sidenav">
 
     <li>
@@ -32,7 +36,6 @@
           <i class="material-icons">tune</i>
         </a>
       </div>
-
     </li>
 
     <li class="card" ng-repeat="vendor in vendors" ng-click="getVendorsDetail(vendor.VendorID)">
@@ -46,8 +49,8 @@
           <span class="email" id="bizListingDescription">{{vendor.BizListingDescription}}</span>
         </a>
       </div>
-
     </li>
+
   </ul>
 
 
@@ -55,10 +58,6 @@
   <div class="row #212121 grey darken-4" id="detailHeader">
 
     <div class="col s1 center">
-      <!--a href="#" data-target="slide-out" class="sidenav-trigger pulse">
-        <i class="material-icons" id="burgerButton">menu</i>
-      </a-->
-
       <a href="#" data-target="slide-out" class="sidenav-trigger btn-floating btn-large blue pulse">
         <i class="material-icons">menu</i>
       </a>
@@ -81,7 +80,9 @@
           <span class="white-text name" id="bizName"> {{vendorDetails.BizName}}</span>
         </div>
         <div id="bizURL">
-          <span class="white-text name underline">{{vendorDetails.BizURL}}</span>
+          <a ng-href=="{{vendorDetails.BizURL}}">
+            <span class="white-text name underline">{{vendorDetails.BizURL}}</span>
+          </a>
         </div>
         <div id="bizPhone">
           <span class="white-text name" ng-if="vendorDetails.BizPhone!=null || vendorDetails.BizPhone!=undefined">Contact: {{vendorDetails.BizPhone}}</span>
@@ -96,12 +97,16 @@
         </a>
       </div>
     </div>
+
   </div>
 
 
   <div class="row #2196f3 blue" id="socialMediaHandles">
-    <div class="col s2">{{vendorDetails.SocialMediaHandles}}</div>
+    <div class="col s2">
+      <span class="white-text name">{{vendorDetails.SocialMediaHandles}}</span>
+    </div>
   </div>
+
 
   <!-- ERROR MESSAGE -->
   <div class="row #2196f3 red" id="errorMessage" ng-if="error!=null;">
@@ -110,6 +115,7 @@
     </a>
     <span class="white-text name">An error has occurred getting data from server.</span>
   </div>
+
 
   <div class="row" id="bizData">
     <div>{{vendorDetails.BizData}}</div>
@@ -121,12 +127,11 @@
       <div class="col s2">
         <img ng-src="{{media.mediaImage}}" class="mediaImage">
       </div>
-      <div class="col s10">
+      <div class="col s10" id="mediaText">
         {{media.MediaText}}
       </div>
     </div>
   </div>
-
 
 
 </body>
